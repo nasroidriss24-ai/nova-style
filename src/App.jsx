@@ -7,7 +7,7 @@ const FontLoader = () => {
     const link = document.createElement("link");
     // Clean, premium, minimalist font
     link.href =
-      "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap";
+      "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }, []);
@@ -161,12 +161,13 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: "clamp(40px, 8vw, 100px)",
-            fontWeight: 300,
+            fontSize: "clamp(60px, 12vw, 160px)",
+            fontWeight: 900,
             color: "#FFFFFF",
-            lineHeight: 1.1,
+            lineHeight: 1,
             margin: 0,
-            letterSpacing: "-0.03em",
+            letterSpacing: "-0.04em",
+            textTransform: "uppercase",
           }}
         >
           Elevated Basics.
@@ -253,12 +254,13 @@ const Collection = () => (
       <h2
         style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 14,
-          fontWeight: 500,
+          fontSize: "clamp(40px, 8vw, 80px)",
+          fontWeight: 900,
           color: "#FFFFFF",
-          letterSpacing: "0.2em",
+          letterSpacing: "-0.02em",
           margin: 0,
           textTransform: "uppercase",
+          lineHeight: 1,
         }}
       >
         The Collection
@@ -266,10 +268,12 @@ const Collection = () => (
       <span
         style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 11,
+          fontSize: 18,
+          fontWeight: 700,
           color: "#666666",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
+          marginBottom: 8,
         }}
       >
         04 Items
@@ -308,16 +312,17 @@ const Collection = () => (
             />
           </div>
           
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: "16px" }}>
             <h3
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 13,
-                fontWeight: 500,
+                fontSize: 28,
+                fontWeight: 900,
                 color: "#FFFFFF",
                 margin: 0,
-                letterSpacing: "0.05em",
+                letterSpacing: "-0.01em",
                 textTransform: "uppercase",
+                lineHeight: 1.1,
               }}
             >
               {item.title}
@@ -325,8 +330,8 @@ const Collection = () => (
             <span
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 13,
-                fontWeight: 400,
+                fontSize: 18,
+                fontWeight: 600,
                 color: "#888888",
               }}
             >
@@ -337,10 +342,10 @@ const Collection = () => (
           <span
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: 11,
-              fontWeight: 400,
+              fontSize: 16,
+              fontWeight: 700,
               color: item.status === "SOLD OUT" ? "#444444" : "#666666",
-              marginTop: 8,
+              marginTop: 12,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
             }}
