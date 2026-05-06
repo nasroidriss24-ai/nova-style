@@ -6,7 +6,7 @@ const FontLoader = () => {
   useEffect(() => {
     const link = document.createElement("link");
     link.href =
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700&display=swap";
+      "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }, []);
@@ -124,16 +124,16 @@ const GrainOverlay = () => (
 );
 
 // ─── Gold divider ──────────────────────────────────────────────────────────
-const GoldDivider = () => (
+const MonochromeDivider = () => (
   <div className="flex items-center gap-4 justify-center my-8">
-    <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, transparent, #D4AF37)" }} />
-    <div style={{ width: 6, height: 6, background: "#D4AF37", transform: "rotate(45deg)" }} />
-    <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, #D4AF37, transparent)" }} />
+    <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, transparent, #FFFFFF)" }} />
+    <div style={{ width: 6, height: 6, background: "#FFFFFF", transform: "rotate(45deg)" }} />
+    <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, #FFFFFF, transparent)" }} />
   </div>
 );
 
 // ─── Cursor follower ───────────────────────────────────────────────────────
-const GoldCursor = () => {
+const UrbanCursor = () => {
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [hovered, setHovered] = useState(false);
 
@@ -159,13 +159,13 @@ const GoldCursor = () => {
         className="fixed top-0 left-0 rounded-full pointer-events-none z-[9998] hidden md:block"
         animate={{ x: pos.x - 6, y: pos.y - 6, scale: hovered ? 0 : 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        style={{ width: 12, height: 12, background: "#D4AF37", opacity: 0.8 }}
+        style={{ width: 12, height: 12, background: "#FFFFFF", opacity: 0.8 }}
       />
       <motion.div
         className="fixed top-0 left-0 rounded-full pointer-events-none z-[9997] hidden md:block"
         animate={{ x: pos.x - 20, y: pos.y - 20, scale: hovered ? 1.6 : 1, opacity: hovered ? 0.6 : 0.25 }}
         transition={{ type: "spring", stiffness: 200, damping: 25 }}
-        style={{ width: 40, height: 40, border: "1px solid #D4AF37" }}
+        style={{ width: 40, height: 40, border: "1px solid #FFFFFF" }}
       />
     </>
   );
@@ -176,7 +176,7 @@ const Navbar = ({ scrolled }) => (
   <motion.nav
     initial={{ y: -80, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    transition={{ duration: 0.4, ease: "easeOut" }}
     style={{
       position: "fixed",
       top: 0,
@@ -186,24 +186,24 @@ const Navbar = ({ scrolled }) => (
       padding: scrolled ? "16px 40px" : "24px 40px",
       background: scrolled ? "rgba(5,5,5,0.95)" : "transparent",
       backdropFilter: scrolled ? "blur(12px)" : "none",
-      borderBottom: scrolled ? "1px solid rgba(212,175,55,0.15)" : "none",
+      borderBottom: scrolled ? "1px solid rgba(255,255,255,0.15)" : "none",
       transition: "all 0.4s ease",
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
     }}
   >
-    <div style={{ fontFamily: "'Playfair Display', serif", color: "#D4AF37", fontSize: 22, letterSpacing: "0.15em", fontWeight: 700 }}>
+    <div style={{ fontFamily: "'Syncopate', sans-serif", color: "#FFFFFF", fontSize: 22, letterSpacing: "0.15em", fontWeight: 700 }}>
       NOVA STYLE
     </div>
-    <div style={{ display: "flex", gap: 32, fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: "0.2em", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>
+    <div style={{ display: "flex", gap: 32, fontFamily: "'Inter', sans-serif", fontSize: 11, letterSpacing: "0.2em", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>
       {["Collection", "Lookbook", "Visit Us"].map((item) => (
         <a
           key={item}
           href={`#${item.toLowerCase().replace(" ", "-")}`}
           data-cursor="hover"
           style={{ textDecoration: "none", color: "inherit", transition: "color 0.3s" }}
-          onMouseEnter={(e) => (e.target.style.color = "#D4AF37")}
+          onMouseEnter={(e) => (e.target.style.color = "#FFFFFF")}
           onMouseLeave={(e) => (e.target.style.color = "rgba(255,255,255,0.6)")}
           className="hidden md:block"
         >
@@ -256,14 +256,14 @@ const Hero = () => {
             key={top}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1.4, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.3, delay: 0.8, ease: "easeOut" }}
             style={{
               position: "absolute",
               top: `${top}%`,
               left: "5%",
               right: "5%",
               height: 1,
-              background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent)",
+              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
               transformOrigin: "left",
             }}
           />
@@ -278,12 +278,12 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, letterSpacing: "0.3em" }}
           animate={{ opacity: 1, letterSpacing: "0.5em" }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
           style={{
-            fontFamily: "'Montserrat', sans-serif",
+            fontFamily: "'Inter', sans-serif",
             fontSize: 11,
             fontWeight: 500,
-            color: "#D4AF37",
+            color: "#FFFFFF",
             marginBottom: 28,
             textTransform: "uppercase",
           }}
@@ -294,7 +294,7 @@ const Hero = () => {
         {/* Title — letter by letter */}
         <h1
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Syncopate', sans-serif",
             fontSize: "clamp(52px, 14vw, 160px)",
             fontWeight: 700,
             lineHeight: 0.9,
@@ -309,10 +309,10 @@ const Hero = () => {
               key={i}
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.75, delay: 0.5 + i * 0.045, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.3, delay: 0.5 + i * 0.045, ease: "easeOut" }}
               style={{
                 display: "inline-block",
-                background: char === " " ? "none" : "linear-gradient(135deg, #F5E27A 0%, #D4AF37 40%, #A0742A 100%)",
+                background: char === " " ? "none" : "linear-gradient(135deg, #EEEEEE 0%, #FFFFFF 40%, #777777 100%)",
                 WebkitBackgroundClip: char === " " ? "none" : "text",
                 WebkitTextFillColor: char === " " ? "transparent" : "transparent",
                 color: char === " " ? "transparent" : "transparent",
@@ -328,9 +328,9 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.2 }}
+          transition={{ duration: 0.4, delay: 1.2 }}
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Syncopate', sans-serif",
             fontStyle: "italic",
             fontSize: "clamp(14px, 2.5vw, 20px)",
             color: "rgba(255,255,255,0.55)",
@@ -339,27 +339,22 @@ const Hero = () => {
             letterSpacing: "0.05em",
           }}
         >
-          Where elegance meets identity
+          WHERE STREET MEETS IDENTITY
         </motion.p>
 
         {/* CTA Button */}
         <motion.button
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
+          transition={{ duration: 0.4, delay: 1.5 }}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
           onClick={scrollToCollection}
           data-cursor="hover"
           style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: 11,
-            fontWeight: 600,
-            letterSpacing: "0.25em",
+            fontFamily: "'Oswald', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.25em",
             textTransform: "uppercase",
-            color: "#050505",
-            background: "linear-gradient(135deg, #F5E27A 0%, #D4AF37 50%, #A0742A 100%)",
-            border: "none",
+            color: "#000000", background: "#FFFFFF", border: "none", textTransform: "uppercase", fontWeight: 800,
             padding: "16px 44px",
             cursor: "pointer",
             position: "relative",
@@ -373,14 +368,14 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+          transition={{ delay: 2, duration: 0.4 }}
           style={{ position: "absolute", bottom: 40, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}
         >
-          <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 9, letterSpacing: "0.3em", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>Scroll</span>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 9, letterSpacing: "0.3em", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            style={{ width: 1, height: 40, background: "linear-gradient(180deg, #D4AF37, transparent)" }}
+            transition={{ duration: 0.3, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 1, height: 40, background: "linear-gradient(180deg, #FFFFFF, transparent)" }}
           />
         </motion.div>
       </motion.div>
@@ -397,16 +392,16 @@ const SectionHeader = ({ eyebrow, title, subtitle }) => {
       <motion.p
         initial={{ opacity: 0, y: 16 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: "0.4em", color: "#D4AF37", textTransform: "uppercase", marginBottom: 16 }}
+        transition={{ duration: 0.3 }}
+        style={{ fontFamily: "'Oswald', sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.4em", color: "#FFFFFF", textTransform: "uppercase", marginBottom: 16 }}
       >
         {eyebrow}
       </motion.p>
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, delay: 0.1 }}
-        style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px, 6vw, 56px)", fontWeight: 700, color: "#fff", margin: 0, lineHeight: 1.1 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        style={{ fontFamily: "'Syncopate', sans-serif", fontSize: "clamp(32px, 6vw, 56px)", fontWeight: 700, color: "#fff", margin: 0, lineHeight: 1.1 }}
       >
         {title}
       </motion.h2>
@@ -414,13 +409,13 @@ const SectionHeader = ({ eyebrow, title, subtitle }) => {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, fontWeight: 300, color: "rgba(255,255,255,0.45)", marginTop: 16, lineHeight: 1.8, letterSpacing: "0.03em" }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 300, color: "rgba(255,255,255,0.45)", marginTop: 16, lineHeight: 1.8, letterSpacing: "0.03em" }}
         >
           {subtitle}
         </motion.p>
       )}
-      <GoldDivider />
+      <MonochromeDivider />
     </div>
   );
 };
@@ -443,7 +438,7 @@ const CollectionCard = ({ item, index }) => {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
       className={spanClass}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -462,7 +457,7 @@ const CollectionCard = ({ item, index }) => {
         src={item.img}
         alt={item.title}
         animate={{ scale: hovered ? 1.08 : 1 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
 
@@ -475,13 +470,10 @@ const CollectionCard = ({ item, index }) => {
           position: "absolute",
           top: 20,
           left: 20,
-          fontFamily: "'Montserrat', sans-serif",
-          fontSize: 9,
-          fontWeight: 600,
-          letterSpacing: "0.2em",
-          color: "#D4AF37",
+          fontFamily: "'Oswald', sans-serif", fontSize: 9, fontWeight: 700, letterSpacing: "0.2em",
+          color: "#FFFFFF",
           textTransform: "uppercase",
-          border: "1px solid rgba(212,175,55,0.4)",
+          border: "1px solid rgba(255,255,255,0.4)",
           padding: "5px 12px",
           background: "rgba(5,5,5,0.6)",
           backdropFilter: "blur(8px)",
@@ -492,7 +484,7 @@ const CollectionCard = ({ item, index }) => {
 
       {/* Bottom info */}
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "20px 24px" }}>
-        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: "#fff", margin: 0, marginBottom: 4 }}>
+        <p style={{ fontFamily: "'Syncopate', sans-serif", fontSize: 18, fontWeight: 600, color: "#fff", margin: 0, marginBottom: 4 }}>
           {item.title}
         </p>
 
@@ -505,11 +497,8 @@ const CollectionCard = ({ item, index }) => {
             display: "flex",
             alignItems: "center",
             gap: 8,
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: 10,
-            fontWeight: 600,
-            letterSpacing: "0.2em",
-            color: "#D4AF37",
+            fontFamily: "'Oswald', sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.2em",
+            color: "#FFFFFF",
             textTransform: "uppercase",
             marginTop: 8,
           }}
@@ -524,7 +513,7 @@ const CollectionCard = ({ item, index }) => {
         initial={false}
         animate={{ opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        style={{ position: "absolute", inset: 0, border: "1px solid rgba(212,175,55,0.5)", pointerEvents: "none" }}
+        style={{ position: "absolute", inset: 0, border: "1px solid rgba(255,255,255,0.5)", pointerEvents: "none" }}
       />
     </motion.div>
   );
@@ -536,7 +525,7 @@ const Collection = () => (
     <SectionHeader
       eyebrow="SS 2025 Lookbook"
       title="The Collection"
-      subtitle="Each piece is a statement. Crafted with precision, worn with intention."
+      subtitle="RAW. UNFILTERED. AUTHENTIC."
     />
     <div
       style={{
@@ -564,7 +553,7 @@ const BrandStory = () => {
   return (
     <section style={{ background: "#080808", padding: "100px 24px", position: "relative", overflow: "hidden" }}>
       {/* BG text watermark */}
-      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", fontFamily: "'Playfair Display', serif", fontSize: "clamp(80px, 20vw, 200px)", fontWeight: 900, color: "rgba(212,175,55,0.03)", whiteSpace: "nowrap", pointerEvents: "none", userSelect: "none" }}>
+      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", fontFamily: "'Syncopate', sans-serif", fontSize: "clamp(80px, 20vw, 200px)", fontWeight: 900, color: "rgba(255,255,255,0.03)", whiteSpace: "nowrap", pointerEvents: "none", userSelect: "none" }}>
         NOVA
       </div>
 
@@ -572,17 +561,17 @@ const BrandStory = () => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 10, fontWeight: 600, letterSpacing: "0.4em", color: "#D4AF37", textTransform: "uppercase", marginBottom: 24 }}
+          transition={{ duration: 0.3 }}
+          style={{ fontFamily: "'Oswald', sans-serif", fontSize: 10, fontWeight: 700, letterSpacing: "0.4em", color: "#FFFFFF", textTransform: "uppercase", marginBottom: 24 }}
         >
           Our Philosophy
         </motion.p>
         <motion.blockquote
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9, delay: 0.15 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Syncopate', sans-serif",
             fontStyle: "italic",
             fontSize: "clamp(22px, 4.5vw, 40px)",
             fontWeight: 400,
@@ -591,13 +580,13 @@ const BrandStory = () => {
             margin: 0,
           }}
         >
-          "Fashion is not just what you wear — it is the language you speak before you say a word."
+          "THE STREETS ARE WATCHING. MAKE THEM STARE."
         </motion.blockquote>
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 11, color: "#D4AF37", letterSpacing: "0.15em", marginTop: 28 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
+          style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#FFFFFF", letterSpacing: "0.15em", marginTop: 28 }}
         >
           — Nova Style, Guelma
         </motion.p>
@@ -639,10 +628,10 @@ const VisitUs = () => {
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ position: "relative" }}
         >
-          <div style={{ border: "1px solid rgba(212,175,55,0.25)", padding: 8, background: "#0a0a0a" }}>
+          <div style={{ border: "1px solid rgba(255,255,255,0.25)", padding: 8, background: "#0a0a0a" }}>
             <iframe
               title="Nova Style - Guelma Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24920!2d7.4283!3d36.4620!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f04dcd17c05c8d%3A0x4a4eec1d9c4c0d08!2sGuelma%2C%20Algeria!5e0!3m2!1sen!2s!4v1700000000000"
@@ -653,12 +642,12 @@ const VisitUs = () => {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-          {/* Gold corner accents */}
+          {/* Monochrome corner accents */}
           {[["top-0 left-0", "border-t border-l"], ["top-0 right-0", "border-t border-r"], ["bottom-0 left-0", "border-b border-l"], ["bottom-0 right-0", "border-b border-r"]].map(([pos, borders], i) => (
             <div
               key={i}
               className={`absolute ${pos} w-5 h-5 ${borders}`}
-              style={{ borderColor: "#D4AF37" }}
+              style={{ borderColor: "#FFFFFF" }}
             />
           ))}
         </motion.div>
@@ -667,7 +656,7 @@ const VisitUs = () => {
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
           style={{ display: "flex", flexDirection: "column", gap: 32 }}
         >
           {/* Store info pills */}
@@ -676,20 +665,20 @@ const VisitUs = () => {
               key={label}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
+              transition={{ duration: 0.3, delay: 0.3 + i * 0.1 }}
               style={{
                 display: "flex",
                 gap: 16,
                 alignItems: "flex-start",
                 padding: "20px 24px",
-                border: "1px solid rgba(212,175,55,0.12)",
-                background: "rgba(212,175,55,0.03)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                background: "rgba(255,255,255,0.03)",
               }}
             >
-              <div style={{ color: "#D4AF37", marginTop: 2 }}>{icon}</div>
+              <div style={{ color: "#FFFFFF", marginTop: 2 }}>{icon}</div>
               <div>
-                <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 9, fontWeight: 600, letterSpacing: "0.25em", color: "#D4AF37", textTransform: "uppercase", margin: 0, marginBottom: 6 }}>{label}</p>
-                <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.65)", margin: 0, lineHeight: 1.5 }}>{value}</p>
+                <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 9, fontWeight: 700, letterSpacing: "0.25em", color: "#FFFFFF", textTransform: "uppercase", margin: 0, marginBottom: 6 }}>{label}</p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.65)", margin: 0, lineHeight: 1.5 }}>{value}</p>
               </div>
             </motion.div>
           ))}
@@ -699,7 +688,7 @@ const VisitUs = () => {
             href="tel:+213XXXXXXXXX"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.55 }}
+            transition={{ duration: 0.3, delay: 0.55 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             data-cursor="hover"
@@ -708,9 +697,9 @@ const VisitUs = () => {
               alignItems: "center",
               justifyContent: "center",
               gap: 10,
-              background: "linear-gradient(135deg, #F5E27A 0%, #D4AF37 50%, #A0742A 100%)",
+              background: "#FFFFFF",
               color: "#050505",
-              fontFamily: "'Montserrat', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: 11,
               fontWeight: 700,
               letterSpacing: "0.2em",
@@ -725,7 +714,7 @@ const VisitUs = () => {
 
           {/* Social links */}
           <div>
-            <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 9, fontWeight: 600, letterSpacing: "0.3em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginBottom: 16 }}>Find Us Online</p>
+            <p style={{ fontFamily: "'Oswald', sans-serif", fontSize: 9, fontWeight: 700, letterSpacing: "0.3em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginBottom: 16 }}>Find Us Online</p>
             <div style={{ display: "flex", gap: 16 }}>
               {[
                 { icon: <InstagramIcon />, label: "Instagram", href: "https://instagram.com/novastyle" },
@@ -736,7 +725,7 @@ const VisitUs = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, borderColor: "#D4AF37" }}
+                  whileHover={{ scale: 1.1, borderColor: "#FFFFFF" }}
                   whileTap={{ scale: 0.95 }}
                   data-cursor="hover"
                   style={{
@@ -747,13 +736,13 @@ const VisitUs = () => {
                     border: "1px solid rgba(255,255,255,0.12)",
                     color: "rgba(255,255,255,0.5)",
                     textDecoration: "none",
-                    fontFamily: "'Montserrat', sans-serif",
+                    fontFamily: "'Inter', sans-serif",
                     fontSize: 11,
                     fontWeight: 500,
                     letterSpacing: "0.1em",
                     transition: "all 0.3s",
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#D4AF37"; e.currentTarget.style.borderColor = "rgba(212,175,55,0.5)"; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#FFFFFF"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
                 >
                   {icon}
@@ -770,16 +759,16 @@ const VisitUs = () => {
 
 // ─── Footer ───────────────────────────────────────────────────────────────
 const Footer = () => (
-  <footer style={{ background: "#030303", borderTop: "1px solid rgba(212,175,55,0.1)", padding: "48px 24px" }}>
+  <footer style={{ background: "#030303", borderTop: "1px solid rgba(255,255,255,0.1)", padding: "48px 24px" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 20, textAlign: "center" }}>
-      <div style={{ fontFamily: "'Playfair Display', serif", color: "#D4AF37", fontSize: 28, fontWeight: 700, letterSpacing: "0.15em" }}>
+      <div style={{ fontFamily: "'Syncopate', sans-serif", color: "#FFFFFF", fontSize: 28, fontWeight: 700, letterSpacing: "0.15em" }}>
         NOVA STYLE
       </div>
-      <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.25)", letterSpacing: "0.05em" }}>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.25)", letterSpacing: "0.05em" }}>
         Guelma, Algeria · Luxury Fashion · Est. 2020
       </p>
-      <GoldDivider />
-      <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 10, color: "rgba(255,255,255,0.2)", letterSpacing: "0.1em" }}>
+      <MonochromeDivider />
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "rgba(255,255,255,0.2)", letterSpacing: "0.1em" }}>
         © {new Date().getFullYear()} Nova Style. All rights reserved.
       </p>
     </div>
@@ -800,7 +789,7 @@ export default function App() {
     <div style={{ background: "#050505", minHeight: "100vh", overflowX: "hidden" }}>
       <FontLoader />
       <GrainOverlay />
-      <GoldCursor />
+      <UrbanCursor />
       <Navbar scrolled={scrolled} />
       <Hero />
       <Collection />
@@ -815,7 +804,7 @@ export default function App() {
         @media (max-width: 768px) { body { cursor: auto; } }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 0; }
+        ::-webkit-scrollbar-thumb { background: #FFFFFF; border-radius: 0; }
         html { scroll-behavior: smooth; }
         @media (max-width: 640px) {
           .lookbook-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
