@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 // ─── Google Fonts ──────────────────────────────────────────────────────────
 const FontLoader = () => {
   useEffect(() => {
     const link = document.createElement("link");
-    // Using ultra-bold, aggressive fonts
+    // Clean, premium, minimalist font
     link.href =
-      "https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Space+Grotesk:wght@600;700&family=Teko:wght@600;700&display=swap";
+      "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }, []);
@@ -18,30 +18,30 @@ const FontLoader = () => {
 const COLLECTION = [
   {
     id: 1,
-    title: "HEAVY HOODIE // 01",
-    img: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=800&q=85",
-    price: "$120",
+    title: "Heavyweight Essential Tee",
+    img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=85",
+    price: "$85",
     status: "IN STOCK",
   },
   {
     id: 2,
-    title: "TACTICAL CARGO // 02",
-    img: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&q=85",
-    price: "$145",
+    title: "Monochrome Lounge Ensemble",
+    img: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=800&q=85",
+    price: "$210",
     status: "LIMITED",
   },
   {
     id: 3,
-    title: "GRAPHIC TEE // 03",
+    title: "Washed Graphic Tee",
     img: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=800&q=85",
-    price: "$65",
+    price: "$95",
     status: "IN STOCK",
   },
   {
     id: 4,
-    title: "UTILITY VEST // 04",
-    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=85",
-    price: "$180",
+    title: "Luxury Co-Ord Set",
+    img: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=800&q=85",
+    price: "$240",
     status: "SOLD OUT",
   },
 ];
@@ -58,39 +58,41 @@ const Navbar = () => (
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: "20px 40px",
-      background: "#000000",
-      borderBottom: "4px solid #FFFFFF",
-      textTransform: "uppercase",
+      padding: "24px 48px",
+      background: "rgba(0,0,0,0.8)",
+      backdropFilter: "blur(10px)",
+      borderBottom: "1px solid #1A1A1A",
     }}
   >
     <div
       style={{
-        fontFamily: "'Teko', sans-serif",
-        fontSize: 36,
-        fontWeight: 700,
+        fontFamily: "'Inter', sans-serif",
+        fontSize: 16,
+        fontWeight: 600,
         color: "#FFFFFF",
-        letterSpacing: "2px",
-        lineHeight: 1,
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
       }}
     >
-      NOVA<span style={{ color: "#FF0000" }}>STYLE</span>
+      NovaStyle
     </div>
-    <div className="hidden md:flex gap-10 items-center">
-      {["Drop 01", "Archive", "Intel"].map((item) => (
+    <div className="hidden md:flex gap-12 items-center">
+      {["T-Shirts", "Ensembles", "Archive"].map((item) => (
         <a
           key={item}
           href={`#${item.toLowerCase()}`}
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: 16,
-            fontWeight: 700,
-            color: "#FFFFFF",
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 12,
+            fontWeight: 400,
+            color: "#888888",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
             textDecoration: "none",
-            transition: "color 0.2s",
+            transition: "color 0.3s ease",
           }}
-          onMouseEnter={(e) => (e.target.style.color = "#FF0000")}
-          onMouseLeave={(e) => (e.target.style.color = "#FFFFFF")}
+          onMouseEnter={(e) => (e.target.style.color = "#FFFFFF")}
+          onMouseLeave={(e) => (e.target.style.color = "#888888")}
         >
           {item}
         </a>
@@ -99,332 +101,332 @@ const Navbar = () => (
   </nav>
 );
 
+// ─── Subtle Banner ───────────────────────────────────────────────────────
+const SubtleBanner = () => (
+  <div
+    style={{
+      padding: "16px 48px",
+      borderBottom: "1px solid #1A1A1A",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      background: "#000000",
+      marginTop: "80px", // Offset for fixed navbar
+    }}
+  >
+    <span
+      style={{
+        fontFamily: "'Inter', sans-serif",
+        fontSize: 11,
+        color: "#666666",
+        letterSpacing: "0.15em",
+        textTransform: "uppercase",
+      }}
+    >
+      NOVA STYLE // DROP 01
+    </span>
+    <span
+      style={{
+        fontFamily: "'Inter', sans-serif",
+        fontSize: 11,
+        color: "#666666",
+        letterSpacing: "0.15em",
+        textTransform: "uppercase",
+      }}
+    >
+      CURATED ESSENTIALS
+    </span>
+  </div>
+);
+
 // ─── Hero ────────────────────────────────────────────────────────────────
 const Hero = () => {
   return (
     <section
       style={{
-        height: "100vh",
+        minHeight: "85vh",
         background: "#000000",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "0 40px",
+        padding: "0 48px",
         position: "relative",
-        borderBottom: "4px solid #FFFFFF",
-        overflow: "hidden",
+        borderBottom: "1px solid #1A1A1A",
       }}
     >
-      {/* Massive Background Graphic */}
-      <div
-        style={{
-          position: "absolute",
-          right: -40,
-          bottom: -40,
-          fontFamily: "'Teko', sans-serif",
-          fontSize: "30vw",
-          color: "transparent",
-          WebkitTextStroke: "2px #1A1A1A",
-          lineHeight: 0.8,
-          pointerEvents: "none",
-          userSelect: "none",
-        }}
-      >
-        RAW.
-      </div>
-
-      <div style={{ zIndex: 10 }}>
+      <div style={{ zIndex: 10, maxWidth: 800 }}>
         <motion.h1
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4, ease: "linear" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            fontFamily: "'Teko', sans-serif",
-            fontSize: "clamp(80px, 15vw, 220px)",
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "clamp(40px, 8vw, 100px)",
+            fontWeight: 300,
             color: "#FFFFFF",
-            lineHeight: 0.85,
+            lineHeight: 1.1,
             margin: 0,
-            textTransform: "uppercase",
-            letterSpacing: "2px",
+            letterSpacing: "-0.03em",
           }}
         >
-          URBAN <br />
-          <span style={{ color: "#FF0000" }}>STREETWEAR</span>
+          Elevated Basics.
         </motion.h1>
         
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: 18,
-            color: "#FFFFFF",
-            maxWidth: 400,
-            marginTop: 40,
-            fontWeight: 700,
-            borderLeft: "6px solid #FF0000",
-            paddingLeft: 20,
-            textTransform: "uppercase",
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 16,
+            fontWeight: 300,
+            color: "#888888",
+            maxWidth: 500,
+            marginTop: 32,
+            lineHeight: 1.6,
           }}
         >
-          NO COMPROMISE. PURE INDUSTRIAL AESTHETICS. DESIGNED FOR THE STREETS.
+          High-end minimalist streetwear. Focusing strictly on premium t-shirts and luxury ensembles designed for a modern aesthetic.
         </motion.p>
         
         <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           style={{
-            marginTop: 40,
-            background: "#FFFFFF",
-            color: "#000000",
-            border: "4px solid #FFFFFF",
-            padding: "16px 40px",
-            fontFamily: "'Oswald', sans-serif",
-            fontSize: 24,
-            fontWeight: 700,
-            cursor: "crosshair",
+            marginTop: 48,
+            background: "transparent",
+            color: "#FFFFFF",
+            border: "1px solid #333333",
+            padding: "16px 48px",
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 12,
+            fontWeight: 400,
+            letterSpacing: "0.15em",
+            cursor: "pointer",
             textTransform: "uppercase",
-            letterSpacing: "1px",
-            transition: "all 0.1s",
+            transition: "all 0.3s ease",
           }}
           onMouseEnter={(e) => {
-            e.target.style.background = "#FF0000";
-            e.target.style.borderColor = "#FF0000";
-            e.target.style.color = "#FFFFFF";
+            e.target.style.background = "#111111";
+            e.target.style.borderColor = "#666666";
           }}
           onMouseLeave={(e) => {
-            e.target.style.background = "#FFFFFF";
-            e.target.style.borderColor = "#FFFFFF";
-            e.target.style.color = "#000000";
+            e.target.style.background = "transparent";
+            e.target.style.borderColor = "#333333";
           }}
           onClick={() =>
-            document.getElementById("drop 01")?.scrollIntoView({ behavior: "smooth" })
+            document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })
           }
         >
-          SHOP DROP 01
+          View Collection
         </motion.button>
       </div>
 
-      {/* Industrial HUD Elements */}
+      {/* Minimal Architectural Elements */}
       <div
         className="hidden md:block"
         style={{
           position: "absolute",
-          top: 140,
-          right: 40,
-          fontFamily: "'Space Grotesk', sans-serif",
-          color: "#FFFFFF",
-          fontSize: 14,
-          fontWeight: 700,
+          bottom: 48,
+          right: 48,
+          fontFamily: "'Inter', sans-serif",
+          color: "#444444",
+          fontSize: 11,
+          fontWeight: 400,
+          letterSpacing: "0.2em",
           textAlign: "right",
-          border: "2px solid #333",
-          padding: "10px",
-          background: "rgba(0,0,0,0.5)",
+          textTransform: "uppercase",
         }}
       >
-        <div>LAT: 36.4620° N</div>
-        <div>LON: 7.4283° E</div>
-        <div style={{ color: "#FF0000", marginTop: 5 }}>[ SYSTEM ONLINE ]</div>
+        <div>01 — 25</div>
+        <div style={{ marginTop: 8 }}>Guelma</div>
       </div>
-      
-      {/* Grid crosshairs */}
-      <div style={{ position: "absolute", bottom: 40, right: 40, width: 40, height: 40, borderRight: "4px solid #FFF", borderBottom: "4px solid #FFF" }}></div>
     </section>
   );
 };
 
-// ─── Scrolling Warning Ticker ────────────────────────────────────────────
-const Ticker = () => (
-  <div
-    style={{
-      background: "#FF0000",
-      padding: "12px 0",
-      borderBottom: "4px solid #FFFFFF",
-      overflow: "hidden",
-      whiteSpace: "nowrap",
-    }}
-  >
-    <motion.div
-      animate={{ x: ["0%", "-50%"] }}
-      transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-      style={{
-        display: "inline-block",
-        fontFamily: "'Teko', sans-serif",
-        fontSize: 36,
-        fontWeight: 700,
-        color: "#000000",
-        letterSpacing: "3px",
-      }}
-    >
-      {[...Array(12)].map((_, i) => (
-        <span key={i} style={{ paddingRight: 40 }}>
-          WARNING: HIGH VOLTAGE // NEW DROP AVAILABLE //
-        </span>
-      ))}
-    </motion.div>
-  </div>
-);
-
 // ─── Collection Grid ─────────────────────────────────────────────────────
 const Collection = () => (
-  <section id="drop 01" style={{ background: "#111111", padding: "100px 40px" }}>
-    <h2
-      style={{
-        fontFamily: "'Teko', sans-serif",
-        fontSize: "clamp(60px, 10vw, 120px)",
-        color: "#FFFFFF",
-        margin: "0 0 40px",
-        lineHeight: 1,
-        textTransform: "uppercase",
-      }}
-    >
-      LATEST DROP.
-    </h2>
+  <section id="collection" style={{ background: "#000000", padding: "120px 48px" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 64 }}>
+      <h2
+        style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: 14,
+          fontWeight: 500,
+          color: "#FFFFFF",
+          letterSpacing: "0.2em",
+          margin: 0,
+          textTransform: "uppercase",
+        }}
+      >
+        The Collection
+      </h2>
+      <span
+        style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: 11,
+          color: "#666666",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+        }}
+      >
+        04 Items
+      </span>
+    </div>
     
     <div
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-        gap: 40,
+        gap: 64,
       }}
     >
       {COLLECTION.map((item) => (
-        <div
-          key={item.id}
-          style={{
-            border: "4px solid #FFFFFF",
-            background: "#000000",
-            position: "relative",
-          }}
-        >
-          {/* Price Tag */}
-          <div
-            style={{
-              position: "absolute",
-              top: -4,
-              left: -4,
-              background: "#FF0000",
-              color: "#FFFFFF",
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: 18,
-              fontWeight: 700,
-              padding: "8px 16px",
-              zIndex: 2,
-              border: "4px solid #FF0000",
-            }}
-          >
-            {item.price}
-          </div>
-          
-          {/* Status Tag */}
-          <div
-            style={{
-              position: "absolute",
-              top: 15,
-              right: 15,
-              color: item.status === "SOLD OUT" ? "#FF0000" : "#FFFFFF",
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: 12,
-              fontWeight: 700,
-              zIndex: 2,
-            }}
-          >
-            [{item.status}]
-          </div>
-
+        <div key={item.id} style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               overflow: "hidden",
-              borderBottom: "4px solid #FFFFFF",
               aspectRatio: "3/4",
+              background: "#111111",
+              marginBottom: 24,
             }}
           >
             <motion.img
-              whileHover={{ scale: 1.05, filter: "grayscale(0%) contrast(1.1)" }}
-              transition={{ duration: 0.2 }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               src={item.img}
               alt={item.title}
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                filter: "grayscale(100%) contrast(1.2)",
+                filter: "grayscale(100%)",
+                opacity: 0.9,
               }}
             />
           </div>
-          <div style={{ padding: 24, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
             <h3
               style={{
-                fontFamily: "'Oswald', sans-serif",
-                fontSize: 26,
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 13,
+                fontWeight: 500,
                 color: "#FFFFFF",
                 margin: 0,
+                letterSpacing: "0.05em",
                 textTransform: "uppercase",
               }}
             >
               {item.title}
             </h3>
-            <div style={{ width: 30, height: 30, border: "2px solid #FFFFFF", display: "flex", justifyContent: "center", alignItems: "center", color: "#FFF", fontWeight: 700 }}>+</div>
+            <span
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 13,
+                fontWeight: 400,
+                color: "#888888",
+              }}
+            >
+              {item.price}
+            </span>
           </div>
+          
+          <span
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 11,
+              fontWeight: 400,
+              color: item.status === "SOLD OUT" ? "#444444" : "#666666",
+              marginTop: 8,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            {item.status}
+          </span>
         </div>
       ))}
     </div>
   </section>
 );
 
-// ─── Brutalist Footer ────────────────────────────────────────────────────
+// ─── Minimalist Footer ────────────────────────────────────────────────────
 const Footer = () => (
   <footer
     style={{
       background: "#000000",
-      borderTop: "4px solid #FFFFFF",
-      padding: "80px 40px",
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-      gap: 60,
+      borderTop: "1px solid #1A1A1A",
+      padding: "80px 48px 48px",
+      display: "flex",
+      flexDirection: "column",
     }}
   >
-    <div>
-      <div
-        style={{
-          fontFamily: "'Teko', sans-serif",
-          fontSize: 80,
-          color: "#FFFFFF",
-          lineHeight: 0.9,
-        }}
-      >
-        NOVASTYLE
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        gap: 64,
+        marginBottom: 80,
+      }}
+    >
+      <div>
+        <div
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 16,
+            fontWeight: 600,
+            color: "#FFFFFF",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            marginBottom: 24,
+          }}
+        >
+          NovaStyle
+        </div>
+        <p
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 12,
+            fontWeight: 400,
+            color: "#666666",
+            lineHeight: 1.6,
+            maxWidth: 300,
+          }}
+        >
+          A minimalist approach to modern streetwear.
+        </p>
       </div>
-      <p
-        style={{
-          fontFamily: "'Space Grotesk', sans-serif",
-          fontSize: 16,
-          fontWeight: 700,
-          color: "#FFFFFF",
-          marginTop: 20,
-        }}
-      >
-        NO COMPROMISE STREETWEAR.
-      </p>
+      
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 500, color: "#444444", margin: 0, letterSpacing: "0.15em", textTransform: "uppercase" }}>Navigation</h4>
+        {["Shop", "About", "Terms", "Contact"].map(link => (
+          <a key={link} href="#" style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#888888", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#FFF"} onMouseLeave={e => e.target.style.color = "#888888"}>
+            {link}
+          </a>
+        ))}
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 500, color: "#444444", margin: 0, letterSpacing: "0.15em", textTransform: "uppercase" }}>Location</h4>
+        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#888888" }}>
+          Guelma, Algeria
+        </div>
+        <a href="mailto:info@novastyle.com" style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#888888", textDecoration: "none", marginTop: 8 }}>
+          info@novastyle.com
+        </a>
+      </div>
     </div>
     
-    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <h4 style={{ fontFamily: "'Oswald', sans-serif", fontSize: 24, color: "#FF0000", margin: "0 0 10px 0" }}>LINKS</h4>
-      {["SHOP", "ABOUT", "TERMS", "CONTACT"].map(link => (
-        <a key={link} href="#" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#FFFFFF", textDecoration: "none", fontWeight: 700 }}>{link}</a>
-      ))}
-    </div>
-
-    <div style={{ textAlign: "left" }}>
-      <h4 style={{ fontFamily: "'Oswald', sans-serif", fontSize: 24, color: "#FF0000", margin: "0 0 10px 0" }}>HQ</h4>
-      <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 16, fontWeight: 700, color: "#FFFFFF" }}>
-        GUELMA, ALGERIA
-      </div>
-      <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 700, color: "#FFFFFF", marginTop: 20 }}>
-        [ SYSTEM: SECURE ]
-      </div>
+    <div style={{ borderTop: "1px solid #1A1A1A", paddingTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#444444" }}>
+        © {new Date().getFullYear()} NovaStyle
+      </span>
+      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#444444", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+        All Rights Reserved
+      </span>
     </div>
   </footer>
 );
@@ -434,8 +436,8 @@ export default function App() {
     <div style={{ background: "#000000", minHeight: "100vh" }}>
       <FontLoader />
       <Navbar />
+      <SubtleBanner />
       <Hero />
-      <Ticker />
       <Collection />
       <Footer />
       <style>{`
@@ -443,25 +445,27 @@ export default function App() {
           margin: 0; 
           background: #000000; 
           color: #FFFFFF; 
-          cursor: crosshair; /* Industrial cursor */
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Brutalist Scrollbar */
+        /* Elegant Minimal Scrollbar */
         ::-webkit-scrollbar { 
-          width: 12px; 
+          width: 4px; 
         }
         ::-webkit-scrollbar-track { 
           background: #000000; 
-          border-left: 2px solid #333; 
         }
         ::-webkit-scrollbar-thumb { 
-          background: #FF0000; 
+          background: #333333; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #666666;
         }
         
-        /* High Contrast Selection */
         ::selection { 
-          background: #FF0000; 
-          color: #000000; 
+          background: #333333; 
+          color: #FFFFFF; 
         }
         
         html { scroll-behavior: smooth; }
