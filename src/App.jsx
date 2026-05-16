@@ -404,80 +404,34 @@ const Collection = () => (
   </section>
 );
 
-// ─── Minimalist Footer ────────────────────────────────────────────────────
+// ─── Minimalist Contact/Footer ────────────────────────────────────────────
 const Footer = () => (
-  <footer
-    style={{
-      background: "#000000",
-      borderTop: "1px solid #1A1A1A",
-      padding: "80px 48px 48px",
-      display: "flex",
-      flexDirection: "column",
-    }}
-  >
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-        gap: 64,
-        marginBottom: 80,
-      }}
-    >
-      <div>
-        <div
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 16,
-            fontWeight: 600,
-            color: "#FFFFFF",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            marginBottom: 24,
-          }}
-        >
-          NovaStyle
-        </div>
-        <p
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 12,
-            fontWeight: 400,
-            color: "#666666",
-            lineHeight: 1.6,
-            maxWidth: 300,
-          }}
-        >
-          A minimalist approach to modern streetwear.
-        </p>
-      </div>
-      
-      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-        <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 500, color: "#444444", margin: 0, letterSpacing: "0.15em", textTransform: "uppercase" }}>Navigation</h4>
-        {["Shop", "About", "Terms", "Contact"].map(link => (
-          <a key={link} href="#" style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#888888", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#FFF"} onMouseLeave={e => e.target.style.color = "#888888"}>
-            {link}
-          </a>
-        ))}
-      </div>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-        <h4 style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 500, color: "#444444", margin: 0, letterSpacing: "0.15em", textTransform: "uppercase" }}>Location</h4>
-        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#888888" }}>
-          Guelma, Algeria
-        </div>
-        <a href="mailto:info@novastyle.com" style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#888888", textDecoration: "none", marginTop: 8 }}>
-          info@novastyle.com
-        </a>
-      </div>
+  <footer className="bg-black py-10 border-t border-gray-800 flex flex-col items-center">
+    <div className="flex flex-col md:flex-row justify-center gap-8 mb-6">
+      <a 
+        href="https://wa.me/213556873856" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="font-bold text-gray-500 hover:text-white uppercase tracking-widest text-lg transition-colors duration-300"
+        style={{ fontFamily: "'Inter', sans-serif" }}
+      >
+        WHATSAPP
+      </a>
+      <a 
+        href="https://www.instagram.com/bouhadiba_nedjmeddine?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="font-bold text-gray-500 hover:text-white uppercase tracking-widest text-lg transition-colors duration-300"
+        style={{ fontFamily: "'Inter', sans-serif" }}
+      >
+        INSTAGRAM
+      </a>
     </div>
-    
-    <div style={{ borderTop: "1px solid #1A1A1A", paddingTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#444444" }}>
-        © {new Date().getFullYear()} NovaStyle
-      </span>
-      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#444444", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-        All Rights Reserved
-      </span>
+    <div 
+      className="text-xs text-gray-500 text-center tracking-widest uppercase" 
+      style={{ fontFamily: "'Inter', sans-serif" }}
+    >
+      © 2026 NOVA STYLE // GUELMA. ALL RIGHTS RESERVED.
     </div>
   </footer>
 );
