@@ -18,31 +18,59 @@ const FontLoader = () => {
 const COLLECTION = [
   {
     id: 1,
-    title: "Heavyweight Essential Tee",
-    img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=85",
-    price: "$85",
+    title: "OFF-WHITE DUCK GRAPHIC TEE",
+    img: "/images/offwhite-duck.jpg",
+    price: "DA 3,500",
+    category: "T-Shirts",
     status: "IN STOCK",
   },
   {
     id: 2,
-    title: "Monochrome Lounge Ensemble",
-    img: "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=800&q=85",
-    price: "$210",
-    status: "LIMITED",
+    title: "OFF-WHITE KAWS EDITION - WHITE",
+    img: "/images/offwhite-kaws-white1.jpg",
+    price: "DA 3,500",
+    category: "T-Shirts",
+    status: "IN STOCK",
   },
   {
     id: 3,
-    title: "Washed Graphic Tee",
-    img: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=800&q=85",
-    price: "$95",
+    title: "OFF-WHITE KAWS EDITION - WHITE",
+    img: "/images/offwhite-kaws-white2.jpg",
+    price: "DA 3,500",
+    category: "T-Shirts",
     status: "IN STOCK",
   },
   {
     id: 4,
-    title: "Luxury Co-Ord Set",
-    img: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=800&q=85",
-    price: "$240",
-    status: "SOLD OUT",
+    title: "OFF-WHITE KAWS EDITION - WHITE",
+    img: "/images/offwhite-kaws-white3.jpg",
+    price: "DA 3,500",
+    category: "T-Shirts",
+    status: "IN STOCK",
+  },
+  {
+    id: 5,
+    title: "OFF-WHITE KAWS EDITION - BLACK",
+    img: "/images/offwhite-kaws-black1.jpg",
+    price: "DA 3,500",
+    category: "T-Shirts",
+    status: "IN STOCK",
+  },
+  {
+    id: 6,
+    title: "OFF-WHITE KAWS EDITION - BLACK",
+    img: "/images/offwhite-kaws-black2.jpg",
+    price: "DA 3,500",
+    category: "T-Shirts",
+    status: "IN STOCK",
+  },
+  {
+    id: 7,
+    title: "BALENCIAGA TIE-DYE LOGO TEE",
+    img: "/images/balenciaga-tiedye.jpg",
+    price: "DA 2,700",
+    category: "T-Shirts",
+    status: "IN STOCK",
   },
 ];
 
@@ -276,7 +304,7 @@ const Collection = () => (
           marginBottom: 8,
         }}
       >
-        04 Items
+        07 Items
       </span>
     </div>
     
