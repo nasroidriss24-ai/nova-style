@@ -35,7 +35,7 @@ const COLLECTION = [
   {
     id: 3,
     title: "OFF-WHITE KAWS EDITION - WHITE",
-    img: "/images/offwhite-kaws-white2.jpg",
+    img: "/images/off-white-kaws-white2.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
     status: "IN STOCK",
@@ -43,7 +43,7 @@ const COLLECTION = [
   {
     id: 4,
     title: "OFF-WHITE KAWS EDITION - WHITE",
-    img: "/images/offwhite-kaws-white3.jpg",
+    img: "/images/off- white-kaws-white3.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
     status: "IN STOCK",
@@ -51,7 +51,7 @@ const COLLECTION = [
   {
     id: 5,
     title: "OFF-WHITE KAWS EDITION - BLACK",
-    img: "/images/offwhite-kaws-black1.jpg",
+    img: "/images/off-white-kaws-black1.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
     status: "IN STOCK",
@@ -59,7 +59,7 @@ const COLLECTION = [
   {
     id: 6,
     title: "OFF-WHITE KAWS EDITION - BLACK",
-    img: "/images/offwhite-kaws-black2.jpg",
+    img: "/images/off-white-kaws-black2.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
     status: "IN STOCK",
