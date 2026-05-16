@@ -22,6 +22,7 @@ const COLLECTION = [
     img: "/images/offwhite-duck.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     status: "IN STOCK",
   },
   {
@@ -30,6 +31,7 @@ const COLLECTION = [
     img: "/images/offwhite-kaws-white1.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     status: "IN STOCK",
   },
   {
@@ -38,6 +40,7 @@ const COLLECTION = [
     img: "/images/off-white-kaws-white2.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     status: "IN STOCK",
   },
   {
@@ -46,6 +49,7 @@ const COLLECTION = [
     img: "/images/off- white-kaws-white3.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     status: "IN STOCK",
   },
   {
@@ -54,6 +58,7 @@ const COLLECTION = [
     img: "/images/off-white-kaws-black1.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     status: "IN STOCK",
   },
   {
@@ -62,6 +67,7 @@ const COLLECTION = [
     img: "/images/off-white-kaws-black2.jpg",
     price: "DA 3,500",
     category: "T-Shirts",
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     status: "IN STOCK",
   },
   {
@@ -70,6 +76,7 @@ const COLLECTION = [
     img: "/images/balenciaga-tiedye.jpg",
     price: "DA 2,700",
     category: "T-Shirts",
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     status: "IN STOCK",
   },
 ];
@@ -367,6 +374,19 @@ const Collection = () => (
             </span>
           </div>
           
+          {item.sizes && (
+            <div className="flex gap-2 mt-3">
+              {item.sizes.map((size) => (
+                <div
+                  key={size}
+                  className="border border-gray-600 text-gray-400 text-xs px-2 py-1 uppercase tracking-widest hover:bg-white hover:text-black transition-colors cursor-pointer"
+                >
+                  {size}
+                </div>
+              ))}
+            </div>
+          )}
+
           <span
             style={{
               fontFamily: "'Inter', sans-serif",
